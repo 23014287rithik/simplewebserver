@@ -1,5 +1,8 @@
 # EX01 Developing a Simple Webserver
-## Date:
+## Date: 13.03.2024
+## Name: Rithik V
+## Roll no: 212223230171
+## Dept: AI&DS
 
 ## AIM:
 To develop a simple webserver to serve html pages.
@@ -22,34 +25,63 @@ Testing the webserver.
 
 ## PROGRAM:
 ```
-from http.server import HTTPServer,BaseHTTPRequestHandler
-
-content='''
-<!doctype html>
+ffrom http.server import HTTPServer, BaseHTTPRequestHandler
+content = """
 <html>
-<head>
-<title> My Web Server</title>
-</head>
+<title>software companies</title>
 <body>
-<h1>Welcome</h1>
+<table border="3" cellspacing="2" cellpadding="6">
+<caption>Top 5 Revenue Generating Software Companies</caption>
+<tr>
+	<th>S.no</th>
+	<th>Company</th>
+	<th>Revenue</th>
+</tr>
+<tr>
+	<td>1</td>
+	<td>Microsoft</td>
+	<td>65 Billion</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>Oracle</td>
+	<td>29.6 Billion</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>IBM</td>
+	<td>29.1 Billion</td>
+</tr>
+<tr>
+	<td>4</td>
+	<td>SAP</td>
+	<td>6.4 Billion</td>
+</tr>
+<tr>
+	<td>5</td>
+	<td>Symantec</td>
+	<td>5.6 Billion</td>
+</tr>
 </body>
 </html>
-'''
-
-class MyServer(BaseHTTPRequestHandler):
+"""
+class myhandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        print("Get request received...")
-        self.send_response(200) 
-        self.send_header("content-type", "text/html")       
+        print("request received")
+        self.send_response(200)
+        self.send_header('content-type', 'text/html; charset=utf-8')
         self.end_headers()
         self.wfile.write(content.encode())
-
-print("This is my webserver") 
-server_address =('',8000)
-httpd = HTTPServer(server_address,MyServer)
+server_address = ('',8000)
+httpd = HTTPServer(server_address,myhandler)
+print("my webserver is running...")
 httpd.serve_forever()
 ```
+
 ## OUTPUT:
+![1](https://github.com/23014287rithik/simplewebserver/assets/150985832/018172c5-7aa0-470f-abcc-d724938a640e)
+
+![2](https://github.com/23014287rithik/simplewebserver/assets/150985832/1d2bf4ee-8710-4928-bc03-90471662c292)
 
 
 ## RESULT:
